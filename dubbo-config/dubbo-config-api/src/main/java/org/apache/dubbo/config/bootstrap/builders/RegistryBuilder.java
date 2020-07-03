@@ -126,7 +126,7 @@ public class RegistryBuilder extends AbstractBuilder<RegistryConfig, RegistryBui
      */
     private Boolean simplified;
     /**
-     * After simplify the registry, should add some paramter individually. just for provider.
+     * After simplify the registry, should add some parameter individually. just for provider.
      * <p>
      * such as: extra-keys = A,b,c,d
      *
@@ -283,6 +283,16 @@ public class RegistryBuilder extends AbstractBuilder<RegistryConfig, RegistryBui
     public RegistryBuilder appendParameter(String key, String value) {
         this.parameters = appendParameter(parameters, key, value);
         return getThis();
+    }
+
+    /**
+     * @param name   the parameter name
+     * @param value the parameter value
+     * @return {@link RegistryBuilder}
+     * @since 2.7.8
+     */
+    public RegistryBuilder parameter(String name, String value) {
+        return appendParameter(name, value);
     }
 
     public RegistryBuilder appendParameters(Map<String, String> appendParameters) {
